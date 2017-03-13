@@ -1,35 +1,38 @@
+var equation = "";
 
-$("#bt").onclick("");
+function afficherequation(){
 
+	$("#affichage").val(equation);
 
-
-/*
-var a= 70
-var b= 10
-
-function addition(a, b){
-	
-};
-console.log(a + b);
-
-function substracion(a, b){
-
-};	
-
-console.log(a - b);
-
-function multiplication (a,b){
-
-};
-console.log(a * b);
-
-function division (a, b){
-	return a / b
 }
-if (b > 0) {
-	console.log(a / b);
+
+function ajouterstring(element){
+	equation=equation + element;
+
+
 }
-else{
-	console.log("v")
-};
-*/
+ajouterstring("1");
+ajouterstring("2");
+ajouterstring("+");
+ajouterstring("8");
+ajouterstring("9");
+
+afficherequation();
+
+
+
+$("#boutonegale").on("click", function(ev){
+	math.eval(equation);
+
+});
+
+$("#boutonsupr").on("click", function(ev){
+	afficherequation();
+	equation = equation.substr(0,equation.length-1);
+	afficherequation();
+});
+
+
+
+
+
