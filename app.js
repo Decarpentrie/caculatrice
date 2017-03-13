@@ -1,5 +1,6 @@
 var equation = "";
 
+
 function afficherequation(){
 
 	$("#affichage").val(equation);
@@ -11,28 +12,28 @@ function ajouterstring(element){
 
 
 }
-ajouterstring("1");
-ajouterstring("2");
-ajouterstring("+");
-ajouterstring("8");
-ajouterstring("9");
 
-afficherequation();
 
+$(".boutonchiffre").on("click",function(ev) {
+	ajouterstring(  $(this).html() );
+	afficherequation();
+});
 
 
 $("#boutonegale").on("click", function(ev){
-	math.eval(equation);
+	equation = math.eval(equation);
+	afficherequation();
 
 });
 
 $("#boutonsupr").on("click", function(ev){
-	afficherequation();
 	equation = equation.substr(0,equation.length-1);
 	afficherequation();
 });
 
 
 
-
-
+$("#reset").on("click", function(ev){
+	equation="";
+	afficherequation();
+});
